@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<div id="wrap">
+		
+	<!--header -->
+	<div id="header">			
+				
+		<h1 id="logo-text"><a href="index.html">Apartment Auction</a></h1>		
+		<p id="slogan">see, bid, move.</p>		
+			
+		<div id="header-links">
+			<p>
+			<a href="/createlisting">Create Listing</a> | 
+			<a href="/myaccount">My Account</a> 
+			</p>		
+		</div>		
+						
+	</div>
+		
+	<!-- navigation -->	
+	<div  id="menu">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="index.html">Listings</a></li>
+			<li id="current"><a href="index.html">Owners</a></li>
+			<li><a href="index.html">Renters</a></li>
+			<li><a href="index.html">Support</a></li>
+			<li><a href="index.html">About</a></li>		
+		</ul>
+	</div>	
+
+{% endblock %}
+
+{% block content %}
+    
+<!-- content-wrap starts here -->
+	<div id="content-wrap">
+		
+		<div id="main">				
+				
+			<a name="TemplateInfo"></a>
+			<h2><a href="index.html">Create Account</a></h2>
+									
+			<h3>Fill out all fields to create an account</h3>
+				
+                <form method="post" action="#">			
+				
+                <p>		
+				
+                <label>Full Name</label>
+				<input name="dname" value="ex: John Smith" type="text" size="58" />
+				<label>Email</label>
+				<input name="demail" value="ex: johnsmith@gmail.com" type="text" size="58" />
+                <label>Username</label>
+				<input name="demail" value="ex: jsmith" type="text" size="58" />
+                <label>Password</label>
+				<input name="demail" value="" type="text" size="58" />
+				<label>Confirm Password</label>
+				<input name="demail" value="" type="text" size="58" />
+                
+                <br />
+                <br />	
+				
+                <input class="button" type="submit" value="Create Account" />		
+				</p>		
+				</form>	
+				
+			<br />				
+
+		</div>
+		
+	<!-- content-wrap ends here -->	
+	</div>
+    
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7285787-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+{% endblock %}

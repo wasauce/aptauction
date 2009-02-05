@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<div id="wrap">
+		
+	<!--header -->
+	<div id="header">			
+				
+		<h1 id="logo-text"><a href="/home">Apartment Auction</a></h1>		
+		<p id="slogan">see, bid, move.</p>		
+			
+		<div id="header-links">
+			<p>
+			<a href="/createlisting">Create Listing</a> | 
+			<a href="/myaccount">My Account</a> 
+			</p>		
+		</div>		
+						
+	</div>
+		
+	<!-- navigation -->	
+	<div  id="menu">
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li><a href="/listings">Listings</a></li>
+			<li id="current"><a href="/owners">Owners</a></li>
+			<li><a href="/renters">Renters</a></li>
+			<li><a href="/support">Support</a></li>
+			<li><a href="/about">About</a></li>	
+		</ul>
+	</div>	
+
+{% endblock %}
+
+{% block content %}
+    
+<!-- content-wrap starts here -->
+	<div id="content-wrap">
+		
+		<div id="main">				
+				
+			<a name="TemplateInfo"></a>
+			<h2><a href="index.html">Your Current Listings</a></h2><br />
+																	
+                <p>		
+				
+                {% for listing in listings %}
+                
+                <ul>
+                <li><a href="/property?id={{ listing.key }}">{{ listing.listingTitle }}</a> - Current Bid: ${{ listing.currentBid }} per month</li><br />
+                </ul>
+
+                {% endfor %}
+                
+ 				</p>
+				
+			<br />				
+
+		</div>
+		
+	<!-- content-wrap ends here -->	
+	</div>
+    
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7285787-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+{% endblock %}

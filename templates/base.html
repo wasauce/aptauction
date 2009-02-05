@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Title      : Subordinate
+Version    : 1.0
+Released   : 20080412
+Description: A two-column, fixed-width and lightweight template ideal for 1024x768 resolutions. Suitable for blogs and small websites.
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta name="Description" content="Information architecture, Web Design, Web Standards." />
+<meta name="Keywords" content="your, keywords" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Distribution" content="Global" />
+<meta name="Author" content="Erwin Aligam - ealigam@gmail.com" />
+<meta name="Robots" content="index,follow" />
+
+<style type="text/css">{% include "css/CoolWater.css" %}</style>
+<script type="text/javascript">{% include "css/util-functions.js" %}</script>
+<script type="text/javascript">{% include "css/clear-default-text.js" %}</script> 
+
+<title>Apartment Auction</title>
+	
+</head>
+
+<body>
+
+<!-- start headerbar -->
+
+{% block header %}
+
+<div id="wrap">
+		
+	<!--header -->
+	<div id="header">			
+				
+		<h1 id="logo-text"><a href="/home">Apartment Auction</a></h1>		
+		<p id="slogan">see, bid, move.</p>		
+			
+		<div id="header-links">
+			<p>
+			<a href="/createlisting">Create Listing</a> | 
+			<a href="/myaccount">My Account</a> 
+			</p>		
+		</div>		
+						
+	</div>
+		
+	<!-- navigation -->	
+	<div  id="menu">
+		<ul>
+			<li id="current"><a href="/home">Home</a></li>
+			<li><a href="/listings">Listings</a></li>
+			<li><a href="/owners">Owners</a></li>
+			<li><a href="/renters">Renters</a></li>
+			<li><a href="/support">Support</a></li>
+			<li><a href="/about">About</a></li>		
+		</ul>
+	</div>	
+
+{% endblock %}
+
+<!-- end header -->
+
+<!-- start page -->
+<!-- start content -->
+<div id="page">
+	
+{% block content %}
+    
+	
+{% endblock %}
+
+	<!-- end content -->
+	<!-- start sidebar -->
+    
+{% block sidebar %}
+    
+		<div id="sidebar">
+			
+			<h2>Search Box</h2>	
+			<form action="#" class="searchform">
+				<p>
+				<input name="search_query" class="textbox" type="text" />
+				<input name="search" class="button" value="Search" type="submit" />
+				</p>			
+			</form>	
+					
+			<h2>Top Listings</h2>
+			<ul class="sidemenu">				
+				<li><a href="/listings">Noe Valley - 2 Bedroom</a></li>
+				<li><a href="/listings">Sunset - 1 Bedroom</a></li>
+				<li><a href="/listings">Mission - 3 Bedroom</a></li>
+				<li><a href="/listings">Cole Valley - 1 Bedroom</a></li>	
+				<li><a href="/listings">Richmond - 1 Bedroom</a></li>	
+			</ul>	
+					
+		</div>
+    
+{% endblock %}
+  
+<!-- end sidebar -->
+
+<div style="clear: both;">&nbsp;</div>
+</div>
+
+<!-- end page -->
+<!--footer starts here-->
+	<div id="footer">
+			
+		<p>
+		&copy; 2009 <strong>Apartment Auction</strong> | 
+		Design by: <a href="http://www.styleshout.com/">styleshout</a>    		
+   	</p>
+				
+	</div>	
+
+<!-- end footer -->
+
+<!-- wrap ends here -->
+</div>
+
+
+</body>
+</html>

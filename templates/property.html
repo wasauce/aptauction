@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<div id="wrap">
+		
+	<!--header -->
+	<div id="header">			
+				
+		<h1 id="logo-text"><a href="/home">Apartment Auction</a></h1>		
+		<p id="slogan">see, bid, move.</p>		
+			
+		<div id="header-links">
+			<p>
+			<a href="/createlisting">Create Listing</a> | 
+			<a href="/myaccount">My Account</a> 
+			</p>		
+		</div>		
+						
+	</div>
+		
+	<!-- navigation -->	
+	<div  id="menu">
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li id="current"><a href="/listings">Listings</a></li>
+			<li><a href="/owners">Owners</a></li>
+			<li><a href="/renters">Renters</a></li>
+			<li><a href="/support">Support</a></li>
+			<li><a href="/about">About</a></li>		
+		</ul>
+	</div>	
+
+{% endblock %}
+
+{% block content %}
+    
+<!-- content-wrap starts here -->
+	<div id="content-wrap">
+		
+		<div id="main">				
+				
+			<a name="TemplateInfo"></a>
+			<h2><a href="index.html">{{ listing.listingTitle }}</a></h2>
+									
+			<h3>Current Bid: ${{ listing.currentBid }} per month</h3>
+				
+                <p>
+               
+                <strong>External Listing:</strong>&nbsp;<a href="{{ listing.link }}" target="_blank">{{ listing.link }}</a><br /><br />
+             
+                <strong>Description:</strong>&nbsp;{{ listing.listingDescription }}<br /><br />
+                <strong>Address:</strong>&nbsp;{{ listing.listingAddress }}<br /><br />
+                <strong>Owner:</strong>&nbsp;{{ listing.listingNickname }}<br /><br />
+
+                                
+ 				</p>
+                
+                <p>		
+                               
+				<form method="post" action="/bid">			
+				<p>		
+                <h3>Auction</h3>
+				</p>
+                <p>
+                Opening Bid: ${{ listing.openingBid }} per month<br /> 
+                Current Bid: ${{ listing.currentBid }} per month<br />
+                Number of Bidders:&nbsp;{{ listing.numberOfBids }}<br />
+                Current Winning Bidder:&nbsp;{{ listing.currentWinningBidderNickname }}<br />
+                Bidding Ends:&nbsp;{{ listing.endDate }}<br />
+				<label>Enter your bid:</label>
+				<input name="bid" value="ex: 1500" type="text" size="10" />
+                <input name="key" value="{{ listing.key }}"  type="hidden" />
+				<input class="button" type="submit" value="Submit Bid" />		
+				</p>	
+                <br />	
+				</form>	
+
+		</div>
+		
+	<!-- content-wrap ends here -->	
+	</div>
+    
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7285787-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+{% endblock %}
