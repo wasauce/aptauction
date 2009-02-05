@@ -45,8 +45,8 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 			
 		<div id="header-links">
 			<p>
-			<a href="/createlisting">Create Listing</a> | 
-			<a href="/myaccount">My Account</a> 
+            {% if user %}<a href="/myaccount">{{ user.nickname }}</a> {% endif %} | {% if user %} <a href="{{logout_url}}">Sign out</a> {% else %} <a href="/myaccount">Sign in</a> {% endif %} 
+			|<a href="/createlisting">Create Listing</a> 
 			</p>		
 		</div>		
 						
@@ -91,17 +91,14 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 				<input name="search" class="button" value="Search" type="submit" />
 				</p>			
 			</form>	
-					
-			<h2>Top Listings</h2>
-			<ul class="sidemenu">				
-				<li><a href="/listings">Noe Valley - 2 Bedroom</a></li>
-				<li><a href="/listings">Sunset - 1 Bedroom</a></li>
-				<li><a href="/listings">Mission - 3 Bedroom</a></li>
-				<li><a href="/listings">Cole Valley - 1 Bedroom</a></li>	
-				<li><a href="/listings">Richmond - 1 Bedroom</a></li>	
-			</ul>	
-					
-		</div>
+            
+			<h2>Listings</h2>
+			<ul class="sidemenu">
+            {% if owner %} {% for listing in owner %} <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </li> {% endfor %} {% endif %} 
+            
+            {% else renter %} {% for listing in renter %} <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </li> {% endfor %} {% endif %}
+            
+            {% else fivenew %} {% for listing in fivenew <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </a></li> {% endfor %} {% endif %} 		
     
 {% endblock %}
   
