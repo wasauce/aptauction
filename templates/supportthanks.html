@@ -41,23 +41,13 @@
 		<div id="main">				
 				
 			<a name="TemplateInfo"></a>
-			<h2><a href="index.html">Support</a></h2>
+			<h2>Thank you</h2>
 									
-			<p>If you're having problems using the site, check out the FAQs.  If you are stil having issues, feel free to contact us using the form below.  Thanks for using the site and we'd love to hear your feedback.</p>
-						
-			<h3>Contact Us</h3>
-			<form method="post" action="/supportsend">			
-			<p>		
-				<label>Name</label>
-				<input name="name" value="Your Name" type="text" size="30" />
-				<label>Email</label>
-				<input name="email" value="Your Email" type="text" size="30" />
-				<label>Your Comments</label>
-				<textarea rows="5" cols="5"></textarea>
-				<br />	
-				<input class="button" name="comments" type="submit" value="Submit Contact Form" />		
-			</p>		
-			</form>	
+			<p>Hello {% if user %}{{ user.nickname }}{% endif %}{% else %}Apt Auction User{% endif %},<br />
+            Thanks for submitting your questions or comments. We'll get back to you as soon as we can. <br />
+            Best,<br />
+            The Apt Auction Team
+            </p>
 				
 			<br />	
 			
