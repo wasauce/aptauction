@@ -228,7 +228,7 @@ class ProcessBidHandler(BaseRequestHandler):
     if user:
       listing = ListingModel.get(self.request.get('key'))
       bidamount = int(self.request.get('bid'))
-      if not listing.listingOwner = user:
+      if not listing.listingOwner == user:
         newbid = BidHistoryModel(listing=listing, bid=bidamount, bidder=user)
         newbid.put()
 
@@ -247,8 +247,7 @@ class ProcessBidHandler(BaseRequestHandler):
         listing.put()
         self.redirect('/property?id=' + str(listing.key()))
       else:
-        self.error(403)
-        return
+        self.redirect('/property?id=' + str(listing.key()))
     else:
       self.redirect(users.create_login_url(self.request.uri))
 
