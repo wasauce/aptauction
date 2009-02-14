@@ -26,7 +26,7 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <script type="text/javascript">{% include "css/clear-default-text.js" %}</script> 
 
 <title>Apartment Auction</title>
-	
+    
 </head>
 
 <body>
@@ -36,33 +36,33 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 {% block header %}
 
 <div id="wrap">
-		
-	<!--header -->
-	<div id="header">			
-				
-		<h1 id="logo-text"><a href="/home">Apartment Auction</a></h1>		
-		<p id="slogan">see, bid, move.</p>		
-			
-		<div id="header-links">
-			<p>
+        
+    <!--header -->
+    <div id="header">            
+                
+        <h1 id="logo-text"><a href="/home">Apartment Auction</a></h1>        
+        <p id="slogan">see, bid, move.</p>        
+            
+        <div id="header-links">
+            <p>
             {% if user %}<a href="/myaccount">{{ user.nickname }}</a> {% endif %} | {% if user %} <a href="{{logout_url}}">Sign out</a> {% else %} <a href="/myaccount">Sign in</a> {% endif %} 
-			|<a href="/createlisting">Create Listing</a> 
-			</p>		
-		</div>		
-						
-	</div>
-		
-	<!-- navigation -->	
-	<div  id="menu">
-		<ul>
-			<li id="current"><a href="/home">Home</a></li>
-			<li><a href="/listings">Listings</a></li>
-			<li><a href="/owners">Owners</a></li>
-			<li><a href="/renters">Renters</a></li>
-			<li><a href="/support">Support</a></li>
-			<li><a href="/about">About</a></li>		
-		</ul>
-	</div>	
+            |<a href="/createlisting">Create Listing</a> 
+            </p>        
+        </div>        
+                        
+    </div>
+        
+    <!-- navigation -->    
+    <div  id="menu">
+        <ul>
+            <li id="current"><a href="/home">Home</a></li>
+            <li><a href="/listings">Listings</a></li>
+            <li><a href="/owners">Owners</a></li>
+            <li><a href="/renters">Renters</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/about">About</a></li>        
+        </ul>
+    </div>    
 
 {% endblock %}
 
@@ -71,34 +71,34 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <!-- start page -->
 <!-- start content -->
 <div id="page">
-	
+    
 {% block content %}
     
-	
+    
 {% endblock %}
 
-	<!-- end content -->
-	<!-- start sidebar -->
+    <!-- end content -->
+    <!-- start sidebar -->
     
 {% block sidebar %}
     
-		<div id="sidebar">
-			
-			<h2>Search Box</h2>	
-			<form action="#" class="searchform">
-				<p>
-				<input name="search_query" class="textbox" type="text" />
-				<input name="search" class="button" value="Search" type="submit" />
-				</p>			
-			</form>	
+        <div id="sidebar">
             
-			<h2>Listings</h2>
-			<ul class="sidemenu">
+            <h2>Search Box</h2>    
+            <form action="#" class="searchform">
+                <p>
+                <input name="search_query" class="textbox" type="text" />
+                <input name="search" class="button" value="Search" type="submit" />
+                </p>            
+            </form>    
+            
+            <h2>Listings</h2>
+            <ul class="sidemenu">
             {% if owner %} {% for listing in owner %} <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </li> {% endfor %} {% endif %} 
             
-            {% else renter %} {% for listing in renter %} <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </li> {% endfor %} {% endif %}
+            {% if renter %} {% for listing in renter %} <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </li> {% endfor %} {% endif %}
             
-            {% else fivenew %} {% for listing in fivenew <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </a></li> {% endfor %} {% endif %} 		
+            {% if fivenew %} {% for listing in fivenew %} <li> <a href="/property?id={{ listing.key }}"> {{ listing.listingTitle }}&nbsp; ${{ listing.currentBid }} </a></li> {% endfor %} {% endif %}         
     
 {% endblock %}
   
@@ -109,14 +109,14 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 
 <!-- end page -->
 <!--footer starts here-->
-	<div id="footer">
-			
-		<p>
-		&copy; 2009 <strong>Apartment Auction</strong> | 
-		Design by: <a href="http://www.styleshout.com/">styleshout</a>    		
-   	</p>
-				
-	</div>	
+    <div id="footer">
+            
+        <p>
+        &copy; 2009 <strong>Apartment Auction</strong> | 
+        Design by: <a href="http://www.styleshout.com/">styleshout</a>            
+       </p>
+                
+    </div>    
 
 <!-- end footer -->
 
