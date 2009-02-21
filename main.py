@@ -120,7 +120,11 @@ class BaseRequestHandler(webapp.RequestHandler):
         template_name: the name of the template file (e.g., 'index.html')
         template_values: a dictionary of values to expand into the template
     """
-
+    
+    #get all the listings ordered by number of bids
+    top_listings = ListingModel.all()
+    top_listings.order("numberOfBids")
+    
     # Populate the values common to all templates
     values = {
       #'user': users.GetCurrentUser(),
@@ -128,6 +132,7 @@ class BaseRequestHandler(webapp.RequestHandler):
       'user': users.GetCurrentUser(),
       'login_url': users.CreateLoginURL(self.request.uri),
       'logout_url': users.CreateLogoutURL(self.request.uri),
+      'top_listings': top_listings,
 
     }
     values.update(template_values)
@@ -144,6 +149,7 @@ class HomePageHandler(BaseRequestHandler):
     logging.info('Visiting the homepage')
 
     self.generate('home.html', {
+          #'listings': query,
     })
 
 class ShowAllListingsPageHandler(BaseRequestHandler):
@@ -301,7 +307,6 @@ class PropertyPageHandler(BaseRequestHandler):
       self.generate('property.html', {
         'listing': entry,
       })
-
 
 class SupportPageHandler(BaseRequestHandler):
   """ Generates the support page.
